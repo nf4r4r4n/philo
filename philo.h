@@ -6,7 +6,7 @@
 /*   By: nfararan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/18 15:13:16 by nfararan          #+#    #+#             */
-/*   Updated: 2024/06/18 15:39:11 by nfararan         ###   ########.fr       */
+/*   Updated: 2024/06/18 17:18:01 by nfararan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ typedef struct s_args
 int				ph_isdigit(const char *nbr);
 int				ph_check_args(int argc, char **argv);
 unsigned int	ph_atoi(const char *nbr);
-void			ph_init_args(t_args *args, int argc, char **argv);
+int				ph_init_args(t_args *args, int argc, char **argv);
 void			ph_print_args(t_args args);
 
 #endif

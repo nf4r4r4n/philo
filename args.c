@@ -6,7 +6,7 @@
 /*   By: nfararan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/18 15:16:22 by nfararan          #+#    #+#             */
-/*   Updated: 2024/06/18 15:38:15 by nfararan         ###   ########.fr       */
+/*   Updated: 2024/06/18 17:19:52 by nfararan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ unsigned int	ph_atoi(const char *nbr)
 	return (result);
 }
 
-void	ph_init_args(t_args *args, int argc, char **argv)
+int	ph_init_args(t_args *args, int argc, char **argv)
 {
 	int	i;
 
@@ -70,6 +70,8 @@ void	ph_init_args(t_args *args, int argc, char **argv)
 		args->nb_times_eat = 0;
 	while (i < argc)
 	{
+		if (i < 6 && ph_atoi(argv[i]) == 0)
+			return (printf("Some of arguments has 0 value\n"), 0);
 		if (i == 1)
 			args->nb_philo = ph_atoi(argv[i]);
 		else if (i == 2)
@@ -82,6 +84,7 @@ void	ph_init_args(t_args *args, int argc, char **argv)
 			args->nb_times_eat = ph_atoi(argv[i]);
 		i++;
 	}
+	return (1);
 }
 
 void	ph_print_args(t_args args)
